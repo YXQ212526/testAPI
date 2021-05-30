@@ -18,7 +18,7 @@ before_script:
   - git config --global user.email "crystal@legenddigital.cn"
   - git clone https://${GH_TOKEN}@${GH_REF} -b gh-pages --depth=1 build
 script:
-  - bundle install && bundle exec middleman
+  - bundle exec middleman build --clean
 
 after_script:
  - cd ./build
