@@ -206,22 +206,26 @@ Get depth
 Back to the trading pair depth info
 
 **HTTP Request**
-> GET /api/v1/public?command=returnOrderBook
+>
+GET
+/api/v1/public?command=returnOrderBook
 
 `curl
 "https://api.coinw.fm/api/v1/public?command=returnOrderBook&symbol=BTC_CNYT&size=20"`
 
 Request Parameters
 
-Field	Data Type	must	Defaults	Description
-size	Int	false	5	Depth value （5，20）
-symbol	string	true		Trading pair like: BTC_CNYT
+Field |	Data Type  |	must |	Defaults |	Description
+-------------- | -------------- | --------------| --------------| --------------
+size	 |Int |	false	 |5	 |Depth value （5，20）
+symbol |	string	 |true	 |	Trading pair like: BTC_CNYT
 
 Response Content
 
-Field	Data Type	Description
-asks	string	Buyer's depth
-bids	string	Seller's depth
+Field	|Data Type|	Description
+-------------- | -------------- | --------------
+asks	|string|	Buyer's depth
+bids	|string	|Seller's depth
 Response:
 ```json
                   {
@@ -273,13 +277,17 @@ amount	string	Total quantity
 total	string	Total amount
 time	string	Trading time
 Response:
+```json
 
                   {
                       "code":"200",
                       "data":[
-                      {
-                          "amount":49.2,
+                    {
+
+
+                         "amount":49.2,
                           "total":160.5888,
+
                           "price":3.264,
                           "id":416253782,
                           "time":"2020-01-09 10:10:15",
@@ -295,7 +303,7 @@ Response:
                       ],
                       "msg":"SUCCESS"
                   }
-
+```
               
 K-line data
 
@@ -324,7 +332,7 @@ open	string	Open
 close	string	Close
 volume	string	Volume
 Response:
-
+```json
         {
           "code":"200",
           "data":[{
@@ -359,7 +367,7 @@ Response:
           ],
           "msg":"SUCCESS"
         }
-      
+```      
 Hot currency volume
 
 Get trading pair 24H volume
@@ -377,7 +385,7 @@ No parameter is needed for this endpoint.
 Response Content
 
 Response:
-
+```json
         {
           "code":"200",
           "data":{
@@ -411,7 +419,7 @@ Response:
           },
           "msg":"SUCCESS"
         }
-      
+```      
 Trade API
 
 For fast trading
@@ -443,7 +451,7 @@ success_count	string	Total traded quantity
 success_amount	string	Total traded amount
 status	string	Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
 Response:
-
+```json
                 {
                     "code":"200",
                     "data":[
@@ -461,7 +469,7 @@ Response:
                     ],
                     "msg":"SUCCESS"
                 }
-            
+```            
 Order details
 
 Back to the order detail information
@@ -490,7 +498,7 @@ fee	string	Unit
 date	string	Trading time
 status	string	Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
 Response:
-
+```json
                   {
                       "code":"200",
                       "data":{
@@ -507,7 +515,7 @@ Response:
                       },
                       "msg":"SUCCESS"
                   }
-              
+```              
 Order status
 
 Back to the order satus information
@@ -531,7 +539,7 @@ total	string	Total order
 startingAmount	string	Order amount
 status	string	Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
 Response:
-
+```json
                 {
                     "code":"200",
                     "data":{
@@ -544,7 +552,7 @@ Response:
                     },
                     "msg":"SUCCESS"
                 }
-            
+```            
 History order
 
 Back to the trading pair's traded records, 1000 at most
@@ -573,7 +581,7 @@ prize	string	Order price
 date	string	Trading time
 status	string	Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
 Response:
-
+```json
                 {
                     "code":"200",
                     "data":[
@@ -614,7 +622,7 @@ Response:
                     ],
                     "msg":"SUCCESS"
                 }
-            
+```            
 Order
 
 Order
@@ -637,7 +645,7 @@ Response Content
 Field	Data Type	Description
 orderNumber	string	Order no.
 Response:
-
+```json
                   {
                       "code":"200",
                       "data":{
@@ -645,7 +653,7 @@ Response:
                       },
                       "msg":"SUCCESS"
                   }
-              
+```              
 Cancel order
 
 Cancel the order
@@ -665,7 +673,7 @@ Response Content
 Field	Data Type	Description
 clientOrderId	string	Order no.
 Response:
-
+```json
                 {
                     "code":"200",
                     "data":{
@@ -673,7 +681,7 @@ Response:
                     },
                     "msg":"SUCCESS"
                 }
-            
+```       
 Cancel all order
 
 Cancel all order
@@ -693,7 +701,7 @@ Response Content
 Field	Data Type	Description
 orderNumbers	Array	Order no. list
 Response:
-
+```json
                 {
                     "code":"200",
                     "data":{
@@ -701,7 +709,7 @@ Response:
                     },
                     "msg":"SUCCESS"
                 }
-
+```
             
 Withdraw API
 
@@ -724,7 +732,7 @@ No parameter is needed for this endpoint.
 Response Content
 
 Response:
-
+```json
             {
                 "code":"200",
                 "data":{
@@ -747,7 +755,7 @@ Response:
                 },
                 "msg":"SUCCESS"
             }
-            
+```            
 All balance
 
 Return all balances of the asset account
@@ -768,7 +776,7 @@ Field	Data Type	Description
 available	string	Available balance
 onOrders	string	Lock balance
 Response:
-
+```json
                 {
                     "code":"200",
                     "data":{
@@ -796,7 +804,7 @@ Response:
                     },
                     "msg":"SUCCESS"
                 }
-            
+```            
 D&w history
 
 Get d&w history
@@ -822,7 +830,7 @@ currency	string	Currency name
 confirmations	string	Confirmations
 status	string	Status 1: withdrawing 3: withdrawn 4: user cancel
 Response:
-
+```json
               {
                 "code":"200",
                 "data":[
@@ -846,7 +854,7 @@ Response:
                 ],
                 "msg":"SUCCESS"
               }
-            
+```            
 Withdraw
 
 Withdraw
@@ -867,13 +875,13 @@ address	string	true		Withdrawal address
 Response Content
 
 Response:
-
+```json
                 {
                     "code": "200",
                     "data": null,
                     "msg": "SUCCESS"
                 }
-              
+```              
 Cancel withdrawal
 
 Cancel withdrawal
@@ -891,13 +899,13 @@ id	string	true		Withdrawal application id
 Response Content
 
 Response:
-
+```json
               {
                     "code": "200",
                     "data":null,
                     "msg": "SUCCESS"
                 }
-            
+```            
 Real-time quotes
 
 Get current market data
@@ -928,7 +936,7 @@ low	Double	Low price
 vol	Double	Hot currency volume
 last	Double	Latest price
 Response:
-
+```json
           {
               "channel":"/market",
               "res":{
@@ -946,7 +954,7 @@ Response:
                   "success":true
               }
           }
-      
+```      
 Error code
 
 API interface call error code description
