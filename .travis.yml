@@ -17,7 +17,11 @@ before_script:
   - git config --global user.name "crystal"
   - git config --global user.email "crystal@legenddigital.cn"
   - git clone https://${GH_TOKEN}@${GH_REF} -b gh-pages --depth=1 build
-#script:
-#  - bundle install && bundle exec middleman
 script:
- - ./deploy.sh
+  - bundle install && bundle exec middleman
+
+after_script:
+ - cd ./build
+ - git add .
+ - git commit -m "update page automatically"
+ - git push

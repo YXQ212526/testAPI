@@ -35,7 +35,6 @@ code_clipboard: true
 ---
 
 # API简介
-
 **欢迎使用CoinW API**
 
 此文档是CoinWAPI的唯一官方文档，CoinWAPI提供的能力会在此持续更新，请大家及时关注。
