@@ -12,7 +12,7 @@ language: 简体中文
 
 other_language: English
 
-url: /en
+url: testapi/en
 
 present_url: /cn
 

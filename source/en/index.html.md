@@ -14,7 +14,7 @@ other_language: 简体中文
 
 url: /cn
 
-present_url: /en
+present_url: testapi/en
 
 active: active
 
@@ -215,17 +215,16 @@ GET
 
 Request Parameters
 
-Field |	Data Type  |	must |	Defaults |	Description
+Field | Data|Type |must |Defaults | Description
 -------------- | -------------- | --------------| --------------| --------------
-size	 |Int |	false	 |5	 |Depth value （5，20）
-symbol |	string	 |true	 |	Trading pair like: BTC_CNYT
-
+size	Int	|  fals | 5	Depth | value |（5，20）
+symbol	|  string  | 	true	 | Trading pair like: BTC-CNYT
 Response Content
 
-Field	|Data Type|	Description
--------------- | -------------- | --------------
-asks	|string|	Buyer's depth
-bids	|string	|Seller's depth
+Field|Data Type|Description
+-------------- | -------------- | --------------| --------------| --------------
+asks	|string|	Buyer'sdepth
+bids	|string|	Seller's depth
 Response:
 ```json
                   {
@@ -263,19 +262,21 @@ Back to the trading pair's last 200 trades
 
 Request Parameters
 
-Field	Data Type	must	Defaults	Description
-symbol	string	true		Trading pair like: BTC_CNYT
-start	string	false		Start time：UNIX timestamp
-end	string	false		End time：UNIX timestamp
+Field |	Data Type |	must  | Defaults|	Description
+-------------- | -------------- | --------------| --------------| --------------
+symbol	| string |  true	  | Trading pair like: BTC_CNYT
+start  |	string  |	false	|	Start time：UNIX timestamp
+end	|string  |	false	|	End time：UNIX timestamp
 Response Content
 
-Field	Data Type	Description
-id	string	Trading ID
-type	string	Type
-price	string	Unit
-amount	string	Total quantity
-total	string	Total amount
-time	string	Trading time
+Field  | Data  Type  |	Description
+-------------- | -------------- | --------------
+id | string |	Trading ID
+type	|string  |	Type
+price  |	string  |	Unit
+amount|	string  | Total quantity
+total	|string  |	Total amount
+time	|string  |	Trading time
 Response:
 ```json
 
@@ -317,20 +318,22 @@ Back to K-line data
 
 Request Parameters
 
-Field	Data Type	must	Defaults	Description
-period	Int	True		Cycle: Sec. such as: 60, 180, 300, 900, 1800, 7200, 14400
-currencyPair	String	True		Trading pair like: BTC_CNYT
-start	String	False		Start time:UNIX timestamp
-end	String	False		End time:UNIX timestamp
+Field  |  Data Type	|  must	|  Defaults	|  Description
+-------------- | -------------- | --------------| --------------| --------------
+period	| Int	True	  |  Cycle: Sec. such as: 60, 180, 300, 900, 1800, 7200, 14400
+currencyPair 	| String	True		| Trading pair like: BTC_CNYT
+start	String	|  False	|	Start | time:UNIX timestamp
+end	String	|  False	|	End | time:UNIX timestamp
 Response Content
 
-Field	Data Type	Description
-date	string	Time
-high	string	High
-low	string	Low
-open	string	Open
-close	string	Close
-volume	string	Volume
+Field	| Data Type	| Description
+-------------- | -------------- | --------------| --------------| --------------
+date	string	| Time
+high	string	| High
+low	string  |	Low
+open	|  string 	|  Open
+close	|  string    | 	Close
+volume	|string	| Volume
 Response:
 ```json
         {
@@ -482,14 +485,16 @@ Back to the order detail information
 
 Request Parameters
 
-Field	Data Type	must	Defaults	Description
-orderNumber	string	true		Order no.
+Field	| Data Type  |	must | Defaults  |	Description
+-------------- | -------------- | --------------| --------------| --------------
+orderNumber	| string	|  true	|	Order |no.
 Response Content
 
-Field	Data Type	Description
-tradeID	string	Trading ID
-currencyPair	string	Trading pair
-type	string	Order type
+Field	| Data Type	|  Description
+-------------- | -------------- | --------------| --------------| --------------
+tradeID	| string	|  Trading ID |
+currencyPair	| string	|  Trading pair |
+type	string	|  Order type
 amount	string	Total trading amount
 success_amount	string	Traded amount
 total	string	Total order
