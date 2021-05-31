@@ -349,6 +349,77 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#market-api" class="toc-h1 toc-link" data-title="Market API">Market API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-depth" class="toc-h2 toc-link" data-title="Get depth"><span>Get depth</span></a>
+                  </li>
+                  <li>
+                    <a href="#k-line-data" class="toc-h2 toc-link" data-title="K-line data"><span>K-line data</span></a>
+                  </li>
+                  <li>
+                    <a href="#hot-currency-volume" class="toc-h2 toc-link" data-title="Hot currency volume"><span>Hot currency volume</span></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#trade-api" class="toc-h1 toc-link" data-title="Trade API">Trade API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#pending-order-list" class="toc-h2 toc-link" data-title="Pending order list"><span>Pending order list</span></a>
+                  </li>
+                  <li>
+                    <a href="#order-details" class="toc-h2 toc-link" data-title="Order details"><span>Order details</span></a>
+                  </li>
+                  <li>
+                    <a href="#order-status" class="toc-h2 toc-link" data-title="Order status"><span>Order status</span></a>
+                  </li>
+                  <li>
+                    <a href="#history-order" class="toc-h2 toc-link" data-title=" History order "><span> History order </span></a>
+                  </li>
+                  <li>
+                    <a href="#order" class="toc-h2 toc-link" data-title=" Order "><span> Order </span></a>
+                  </li>
+                  <li>
+                    <a href="#cancel-order" class="toc-h2 toc-link" data-title=" Cancel order "><span> Cancel order </span></a>
+                  </li>
+                  <li>
+                    <a href="#cancel-all-order" class="toc-h2 toc-link" data-title="Cancel all order "><span>Cancel all order </span></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#withdraw-api" class="toc-h1 toc-link" data-title="Withdraw API">Withdraw API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#available-balance" class="toc-h2 toc-link" data-title="Available balance "><span>Available balance </span></a>
+                  </li>
+                  <li>
+                    <a href="#all-balance" class="toc-h2 toc-link" data-title="All balance "><span>All balance </span></a>
+                  </li>
+                  <li>
+                    <a href="#d-amp-w-history" class="toc-h2 toc-link" data-title=" D&amp;w history "><span> D&amp;w history </span></a>
+                  </li>
+                  <li>
+                    <a href="#withdraw" class="toc-h2 toc-link" data-title=" Withdraw "><span> Withdraw </span></a>
+                  </li>
+                  <li>
+                    <a href="#cancel-withdrawal" class="toc-h2 toc-link" data-title=" Cancel withdrawal "><span> Cancel withdrawal </span></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#real-time-quotes" class="toc-h1 toc-link" data-title="Real-time quotes">Real-time quotes</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#websocket-market-data" class="toc-h2 toc-link" data-title=" Websocket market data "><span> Websocket market data </span></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#error-code" class="toc-h1 toc-link" data-title="Error code">Error code</a>
+          </li>
       </ul>
     </div>
     <div class="page-wrapper">
@@ -474,7 +545,8 @@
                     &quot;msg&quot;:&quot;SUCCESS&quot;
                 }</p>
 <div class="highlight"><pre class="highlight plaintext"><code>
-Currency information
+## &lt;span&gt;Currency information&lt;/span&gt;
+
 
 Back to currency related info
 
@@ -543,11 +615,9 @@ Response:
                     "msg":"SUCCESS"
                 }
 
-</code></pre></div>
-<p>Market API</p>
-
+</code></pre></div><h1 id='market-api'>Market API</h1>
 <p>Get current market data</p>
-
+<h2 id='get-depth'><span>Get depth</span></h2>
 <p>Get depth</p>
 
 <p>Back to the trading pair depth info</p>
@@ -555,8 +625,7 @@ Response:
 <p><strong>HTTP Request</strong></p>
 
 <blockquote>
-<p>GET
-/api/v1/public?command=returnOrderBook</p>
+<p>GET /api/v1/public?command=returnOrderBook</p>
 </blockquote>
 
 <p><code>curl
@@ -564,11 +633,32 @@ Response:
 
 <p>Request Parameters</p>
 
-<p>Field | Data|Type |must |Defaults | Description
--------------- | -------------- | --------------| --------------| --------------
-size    Int |  fals | 5 Depth | value |（5，20）
-symbol  |  string  |    true     | Trading pair like: BTC-CNYT
-Response Content</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>DataType</th>
+<th>must</th>
+<th>Defaults</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>size</td>
+<td>Int</td>
+<td>false</td>
+<td>5</td>
+<td>Depth</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td></td>
+<td>Trading pair like: BTC-CNYT</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
 
 <table><thead>
 <tr>
@@ -612,7 +702,7 @@ Response Content</p>
                       &quot;msg&quot;:&quot;SUCCESS&quot;
                   }</p>
 <div class="highlight"><pre class="highlight plaintext"><code>
-Latest trading pair
+## &lt;span&gt;Latest trading pair&lt;/span&gt;
 
 Back to the trading pair's last 200 trades
 
@@ -624,8 +714,8 @@ Back to the trading pair's last 200 trades
 
 Request Parameters
 
-Field | Data Type | must  | Defaults|   Description
--------------- | -------------- | --------------| --------------| --------------
+Field | Data Type | must  | Description
+-------------- | -------------- | --------------| --------------
 symbol  | string |  true      | Trading pair like: BTC_CNYT
 start  |    string  |   false   |   Start time：UNIX timestamp
 end |string  |  false   |   End time：UNIX timestamp
@@ -666,9 +756,7 @@ Response:
                       ],
                       "msg":"SUCCESS"
                   }
-</code></pre></div>
-<p>K-line data</p>
-
+</code></pre></div><h2 id='k-line-data'><span>K-line data</span></h2>
 <p>Back to K-line data</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -686,37 +774,32 @@ Response:
 <th>Field</th>
 <th>Data Type</th>
 <th>must</th>
-<th>Defaults</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>period</td>
-<td>Int   True</td>
+<td>Int</td>
+<td>True</td>
 <td>Cycle: Sec. such as: 60, 180, 300, 900, 1800, 7200, 14400</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>currencyPair</td>
-<td>String    True</td>
-<td>Trading pair like: BTC_CNYT</td>
-<td></td>
+<td>String</td>
+<td>True</td>
 <td></td>
 </tr>
 <tr>
-<td>start   String</td>
+<td>start</td>
+<td>String</td>
 <td>False</td>
 <td>Start</td>
-<td>time:UNIX timestamp</td>
-<td></td>
 </tr>
 <tr>
-<td>end String</td>
+<td>end</td>
+<td>String</td>
 <td>False</td>
 <td>End</td>
-<td>time:UNIX timestamp</td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -730,19 +813,19 @@ Response:
 </tr>
 </thead><tbody>
 <tr>
-<td>date    string</td>
+<td>date</td>
+<td>string</td>
 <td>Time</td>
-<td></td>
 </tr>
 <tr>
-<td>high    string</td>
+<td>high</td>
+<td>string</td>
 <td>High</td>
-<td></td>
 </tr>
 <tr>
-<td>low string</td>
+<td>low</td>
+<td>string</td>
 <td>Low</td>
-<td></td>
 </tr>
 <tr>
 <td>open</td>
@@ -797,9 +880,8 @@ Response:
           ],
           &quot;msg&quot;:&quot;SUCCESS&quot;
         }
-</code><br>
-Hot currency volume</p>
-
+</code>      </p>
+<h2 id='hot-currency-volume'><span>Hot currency volume</span></h2>
 <p>Get trading pair 24H volume</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -851,13 +933,10 @@ Hot currency volume</p>
           },
           &quot;msg&quot;:&quot;SUCCESS&quot;
         }
-</code><br>
-Trade API</p>
-
+</code>      </p>
+<h1 id='trade-api'>Trade API</h1>
 <p>For fast trading</p>
-
-<p>Pending order list</p>
-
+<h2 id='pending-order-list'><span>Pending order list</span></h2>
 <p>Back to the trading pair&#39;s pending order list</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -870,21 +949,79 @@ Trade API</p>
 
 <p>Request Parameters</p>
 
-<p>Field   Data Type   must    Defaults    Description
-currencyPair    string  true        Trading pair
-Response Content</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currencyPair</td>
+<td>string</td>
+<td>true</td>
+<td>Trading pair</td>
+</tr>
+</tbody></table>
 
-<p>Field   Data Type   Description
-orderNumber string  Order no.
-date    string  Trading time
-startingAmount  string  Order total amount
-total   string  Total order
-type    string  Order type
-prize   string  Order price
-success_count   string  Total traded quantity
-success_amount  string  Total traded amount
-status  string  Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
-Response:
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderNumber</td>
+<td>string</td>
+<td>Order no.</td>
+</tr>
+<tr>
+<td>date</td>
+<td>string</td>
+<td>Trading time</td>
+</tr>
+<tr>
+<td>startingAmount</td>
+<td>string</td>
+<td>Order total amount</td>
+</tr>
+<tr>
+<td>total</td>
+<td>string</td>
+<td>Total order</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td>prize</td>
+<td>string</td>
+<td>Order price</td>
+</tr>
+<tr>
+<td>success_count</td>
+<td>string</td>
+<td>Total traded quantity</td>
+</tr>
+<tr>
+<td>success_amount</td>
+<td>string</td>
+<td>Total traded amount</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel</td>
+</tr>
+</tbody></table>
+
+<p>Response:
 <code>json
                 {
                     &quot;code&quot;:&quot;200&quot;,
@@ -903,9 +1040,8 @@ Response:
                     ],
                     &quot;msg&quot;:&quot;SUCCESS&quot;
                 }
-</code><br>
-Order details</p>
-
+</code>      </p>
+<h2 id='order-details'><span>Order details</span></h2>
 <p>Back to the order detail information</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -923,7 +1059,6 @@ Order details</p>
 <th>Field</th>
 <th>Data Type</th>
 <th>must</th>
-<th>Defaults</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
@@ -932,7 +1067,6 @@ Order details</p>
 <td>string</td>
 <td>true</td>
 <td>Order</td>
-<td>no.</td>
 </tr>
 </tbody></table>
 
@@ -956,20 +1090,48 @@ Order details</p>
 <td>Trading pair</td>
 </tr>
 <tr>
-<td>type    string</td>
+<td>type</td>
+<td>string</td>
 <td>Order type</td>
-<td></td>
+</tr>
+<tr>
+<td>amount</td>
+<td>string</td>
+<td>Total trading amount</td>
+</tr>
+<tr>
+<td>success_amount</td>
+<td>string</td>
+<td>Traded amount</td>
+</tr>
+<tr>
+<td>total</td>
+<td>string</td>
+<td>Total order</td>
+</tr>
+<tr>
+<td>success_total</td>
+<td>string</td>
+<td>Traded quantity</td>
+</tr>
+<tr>
+<td>fee</td>
+<td>string</td>
+<td>Unit</td>
+</tr>
+<tr>
+<td>date</td>
+<td>string</td>
+<td>Trading time</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel</td>
 </tr>
 </tbody></table>
 
-<p>amount  string  Total trading amount
-success_amount  string  Traded amount
-total   string  Total order
-success_total   string  Traded quantity
-fee string  Unit
-date    string  Trading time
-status  string  Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
-Response:
+<p>Response:
 <code>json
                   {
                       &quot;code&quot;:&quot;200&quot;,
@@ -987,9 +1149,8 @@ Response:
                       },
                       &quot;msg&quot;:&quot;SUCCESS&quot;
                   }
-</code><br>
-Order status</p>
-
+</code>  </p>
+<h2 id='order-status'><span>Order status</span></h2>
 <p>Back to the order satus information</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -1002,17 +1163,59 @@ Order status</p>
 
 <p>Request Parameters</p>
 
-<p>Field   Data Type   must    Defaults    Description
-orderNumber string  true        Order no.
-Response Content</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderNumber</td>
+<td>string</td>
+<td>true</td>
+<td>Order no.</td>
+</tr>
+</tbody></table>
 
-<p>Field   Data Type   Description
-currencyPair    string  Trading pair
-type    string  Order type
-total   string  Total order
-startingAmount  string  Order amount
-status  string  Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
-Response:
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currencyPair</td>
+<td>string</td>
+<td>Trading pair</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td>total</td>
+<td>string</td>
+<td>Total order</td>
+</tr>
+<tr>
+<td>startingAmount</td>
+<td>string</td>
+<td>Order amount</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel</td>
+</tr>
+</tbody></table>
+
+<p>Response:
 <code>json
                 {
                     &quot;code&quot;:&quot;200&quot;,
@@ -1026,9 +1229,8 @@ Response:
                     },
                     &quot;msg&quot;:&quot;SUCCESS&quot;
                 }
-</code><br>
-History order</p>
-
+</code>       </p>
+<h2 id='history-order'><span> History order </span></h2>
 <p>Back to the trading pair&#39;s traded records, 1000 at most</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -1041,22 +1243,84 @@ History order</p>
 
 <p>Request Parameters</p>
 
-<p>Field   Data Type   must    Defaults    Description
-currencyPair    string  true        Trading pair
-Response Content</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currencyPair</td>
+<td>string</td>
+<td>true</td>
+<td>Trading pair</td>
+</tr>
+</tbody></table>
 
-<p>Field   Data Type   Description
-tradeID string  Trading ID
-type    string  Order type
-amount  string  Total trading amount
-success_amount  string  Traded amount
-total   string  Total order
-success_count   string  Traded quantity
-fee string  Fee
-prize   string  Order price
-date    string  Trading time
-status  string  Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
-Response:
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tradeID</td>
+<td>string</td>
+<td>Trading ID</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>string</td>
+<td>Total trading amount</td>
+</tr>
+<tr>
+<td>success_amount</td>
+<td>string</td>
+<td>Traded amount</td>
+</tr>
+<tr>
+<td>total</td>
+<td>string</td>
+<td>Total order</td>
+</tr>
+<tr>
+<td>success_count</td>
+<td>string</td>
+<td>Traded quantity</td>
+</tr>
+<tr>
+<td>fee</td>
+<td>string</td>
+<td>Fee</td>
+</tr>
+<tr>
+<td>prize</td>
+<td>string</td>
+<td>Order price</td>
+</tr>
+<tr>
+<td>date</td>
+<td>string</td>
+<td>Trading time</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel</td>
+</tr>
+</tbody></table>
+
+<p>Response:
 <code>json
                 {
                     &quot;code&quot;:&quot;200&quot;,
@@ -1098,9 +1362,8 @@ Response:
                     ],
                     &quot;msg&quot;:&quot;SUCCESS&quot;
                 }
-</code><br>
-Order</p>
-
+</code>      </p>
+<h2 id='order'><span> Order </span></h2>
 <p>Order</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -1113,16 +1376,57 @@ Order</p>
 
 <p>Request Parameters</p>
 
-<p>Field   Data Type   must    Defaults    Description
-symbol  string  true        Trading pair like: BTC_CNYT
-type    string  true        Order type: 0-buy, 1-sell
-amount  double  true        Order quantity
-rate    double  true        Order price
-Response Content</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>Trading pair like: BTC_CNYT</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>true</td>
+<td>Order type: 0-buy, 1-sell</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>double</td>
+<td>true</td>
+<td>Order quantity</td>
+</tr>
+<tr>
+<td>rate</td>
+<td>double</td>
+<td>true</td>
+<td>Order price</td>
+</tr>
+</tbody></table>
 
-<p>Field   Data Type   Description
-orderNumber string  Order no.
-Response:
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderNumber</td>
+<td>string</td>
+<td>Order no.</td>
+</tr>
+</tbody></table>
+
+<p>Response:
 <code>json
                   {
                       &quot;code&quot;:&quot;200&quot;,
@@ -1131,9 +1435,8 @@ Response:
                       },
                       &quot;msg&quot;:&quot;SUCCESS&quot;
                   }
-</code><br>
-Cancel order</p>
-
+</code>        </p>
+<h2 id='cancel-order'><span> Cancel order </span></h2>
 <p>Cancel the order</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -1146,13 +1449,39 @@ Cancel order</p>
 
 <p>Request Parameters</p>
 
-<p>Field   Data Type   must    Defaults    Description
-orderNumber string  true        Order no.
-Response Content</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderNumber</td>
+<td>string</td>
+<td>true</td>
+<td>Order no.</td>
+</tr>
+</tbody></table>
 
-<p>Field   Data Type   Description
-clientOrderId   string  Order no.
-Response:
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>clientOrderId</td>
+<td>string</td>
+<td>Order no.</td>
+</tr>
+</tbody></table>
+
+<p>Response:
 <code>json
                 {
                     &quot;code&quot;:&quot;200&quot;,
@@ -1161,9 +1490,8 @@ Response:
                     },
                     &quot;msg&quot;:&quot;SUCCESS&quot;
                 }
-</code><br>
-Cancel all order</p>
-
+</code>    </p>
+<h2 id='cancel-all-order'><span>Cancel all order </span></h2>
 <p>Cancel all order</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -1176,13 +1504,39 @@ Cancel all order</p>
 
 <p>Request Parameters</p>
 
-<p>Field   Data Type   must    Defaults    Description
-currencyPair    string  False       Trading pair
-Response Content</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currencyPair</td>
+<td>string</td>
+<td>False</td>
+<td>Trading pair</td>
+</tr>
+</tbody></table>
 
-<p>Field   Data Type   Description
-orderNumbers    Array   Order no. list
-Response:
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderNumbers</td>
+<td>Array</td>
+<td>Order no. list</td>
+</tr>
+</tbody></table>
+
+<p>Response:
 <code>json
                 {
                     &quot;code&quot;:&quot;200&quot;,
@@ -1192,13 +1546,9 @@ Response:
                     &quot;msg&quot;:&quot;SUCCESS&quot;
                 }
 </code></p>
-
-<p>Withdraw API</p>
-
+<h1 id='withdraw-api'>Withdraw API</h1>
 <p>For fast crypto withdrawal</p>
-
-<p>Available balance</p>
-
+<h2 id='available-balance'><span>Available balance </span></h2>
 <p>Return the available balance of the asset account</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -1239,9 +1589,8 @@ Response:
                 },
                 &quot;msg&quot;:&quot;SUCCESS&quot;
             }
-</code><br>
-All balance</p>
-
+</code>            </p>
+<h2 id='all-balance'><span>All balance </span></h2>
 <p>Return all balances of the asset account</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -1258,10 +1607,26 @@ All balance</p>
 
 <p>Response Content</p>
 
-<p>Field   Data Type   Description
-available   string  Available balance
-onOrders    string  Lock balance
-Response:
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>available</td>
+<td>string</td>
+<td>Available balance</td>
+</tr>
+<tr>
+<td>onOrders</td>
+<td>string</td>
+<td>Lock balance</td>
+</tr>
+</tbody></table>
+
+<p>Response:
 <code>json
                 {
                     &quot;code&quot;:&quot;200&quot;,
@@ -1290,9 +1655,8 @@ Response:
                     },
                     &quot;msg&quot;:&quot;SUCCESS&quot;
                 }
-</code><br>
-D&amp;w history</p>
-
+</code>      </p>
+<h2 id='d-amp-w-history'><span> D&amp;w history </span></h2>
 <p>Get d&amp;w history</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -1305,19 +1669,69 @@ D&amp;w history</p>
 
 <p>Request Parameters</p>
 
-<p>Field   Data Type   must    Defaults    Description
-symbol  string  true        Currency name
-Response Content</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>Currency name</td>
+</tr>
+</tbody></table>
 
-<p>Field   Data Type   Description
-amount  string  Quantity
-depositNumber   string  The only number(ID)
-address string  D&amp;w addresses
-txid    string  Trading hash
-currency    string  Currency name
-confirmations   string  Confirmations
-status  string  Status 1: withdrawing 3: withdrawn 4: user cancel
-Response:
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>amount</td>
+<td>string</td>
+<td>Quantity</td>
+</tr>
+<tr>
+<td>depositNumber</td>
+<td>string</td>
+<td>The only number(ID)</td>
+</tr>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>D&amp;w addresses</td>
+</tr>
+<tr>
+<td>txid</td>
+<td>string</td>
+<td>Trading hash</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>Currency name</td>
+</tr>
+<tr>
+<td>confirmations</td>
+<td>string</td>
+<td>Confirmations</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Status 1: withdrawing 3: withdrawn 4: user cancel</td>
+</tr>
+</tbody></table>
+
+<p>Response:
 <code>json
               {
                 &quot;code&quot;:&quot;200&quot;,
@@ -1342,9 +1756,8 @@ Response:
                 ],
                 &quot;msg&quot;:&quot;SUCCESS&quot;
               }
-</code><br>
-Withdraw</p>
-
+</code> </p>
+<h2 id='withdraw'><span> Withdraw </span></h2>
 <p>Withdraw</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -1357,12 +1770,41 @@ Withdraw</p>
 
 <p>Request Parameters</p>
 
-<p>Field   Data Type   must    Defaults    Description
-memo    string  False       Memo
-amount  string  true        Withdraw quantity
-currency    string  true        Currency
-address string  true        Withdrawal address
-Response Content</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>memo</td>
+<td>string</td>
+<td>False</td>
+<td>Memo</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>string</td>
+<td>true</td>
+<td>Withdraw quantity</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>true</td>
+<td>Currency</td>
+</tr>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>true</td>
+<td>Withdrawal address</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
 
 <p>Response:
 <code>json
@@ -1371,9 +1813,8 @@ Response Content</p>
                     &quot;data&quot;: null,
                     &quot;msg&quot;: &quot;SUCCESS&quot;
                 }
-</code><br>
-Cancel withdrawal</p>
-
+</code>     </p>
+<h2 id='cancel-withdrawal'><span> Cancel withdrawal </span></h2>
 <p>Cancel withdrawal</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -1386,9 +1827,23 @@ Cancel withdrawal</p>
 
 <p>Request Parameters</p>
 
-<p>Field   Data Type   must    Defaults    Description
-id  string  true        Withdrawal application id
-Response Content</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>true</td>
+<td>Withdrawal application id</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
 
 <p>Response:
 <code>json
@@ -1397,13 +1852,10 @@ Response Content</p>
                     &quot;data&quot;:null,
                     &quot;msg&quot;: &quot;SUCCESS&quot;
                 }
-</code><br>
-Real-time quotes</p>
-
+</code>            </p>
+<h1 id='real-time-quotes'>Real-time quotes</h1>
 <p>Get current market data</p>
-
-<p>Websocket market data</p>
-
+<h2 id='websocket-market-data'><span> Websocket market data </span></h2>
 <p>Websocket market data</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -1414,20 +1866,76 @@ Real-time quotes</p>
 
 <p>Request Parameters</p>
 
-<p>Field   Data Type   must    Defaults    Description
-event   string  True        Fill inaddChannel
-channel string  True        Fill in/market
-symbol  string  int     CurrencyID
-Response Content</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>string</td>
+<td>True</td>
+<td>Fill inaddChannel</td>
+</tr>
+<tr>
+<td>channel</td>
+<td>string</td>
+<td>True</td>
+<td>Fill in/market</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>int</td>
+<td>CurrencyID</td>
+</tr>
+</tbody></table>
 
-<p>Field   Data Type   Description
-buy Double  Buy price
-sell    Double  Sell price
-high    Double  High 24H
-low Double  Low price
-vol Double  Hot currency volume
-last    Double  Latest price
-Response:
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>buy</td>
+<td>Double</td>
+<td>Buy price</td>
+</tr>
+<tr>
+<td>sell</td>
+<td>Double</td>
+<td>Sell price</td>
+</tr>
+<tr>
+<td>high</td>
+<td>Double</td>
+<td>High 24H</td>
+</tr>
+<tr>
+<td>low</td>
+<td>Double</td>
+<td>Low price</td>
+</tr>
+<tr>
+<td>vol</td>
+<td>Double</td>
+<td>Hot currency volume</td>
+</tr>
+<tr>
+<td>last</td>
+<td>Double</td>
+<td>Latest price</td>
+</tr>
+</tbody></table>
+
+<p>Response:
 <code>json
           {
               &quot;channel&quot;:&quot;/market&quot;,
@@ -1446,22 +1954,53 @@ Response:
                   &quot;success&quot;:true
               }
           }
-</code><br>
-Error code</p>
-
+</code>      </p>
+<h1 id='error-code'>Error code</h1>
 <p>API interface call error code description</p>
 
-<p>Error code  Detail description
-200 Operation success
-500 Operation failure
-10001   Internet error
-10002   API not exist
-10003   Parameter error
-10004   No trading permission
-10005   No withdrawal permission
-10006   api_key error
-10007   Signature error
-json</p>
+<table><thead>
+<tr>
+<th>Error code</th>
+<th>Detail description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Operation success</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Operation failure</td>
+</tr>
+<tr>
+<td>10001</td>
+<td>Internet error</td>
+</tr>
+<tr>
+<td>10002</td>
+<td>API not exist</td>
+</tr>
+<tr>
+<td>10003</td>
+<td>Parameter error</td>
+</tr>
+<tr>
+<td>10004</td>
+<td>No trading permission</td>
+</tr>
+<tr>
+<td>10005</td>
+<td>No withdrawal permission</td>
+</tr>
+<tr>
+<td>10006</td>
+<td>api_key error</td>
+</tr>
+<tr>
+<td>10007</td>
+<td>Signature error</td>
+</tr>
+</tbody></table>
 
       </div>
       <div class="dark-box">
