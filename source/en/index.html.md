@@ -14,7 +14,7 @@ other_language: 简体中文
 
 url: /cn
 
-present_url: testapi/en
+present_url: /en
 
 active: active
 
@@ -103,7 +103,8 @@ isFrozen | 	string | 	Lock or not
 high24hr | 	string	 | High 24H
 low24hr | 	string | 	Low price
 baseVolume	 | string	 | Base currency volume 24H
-Response:
+
+
 ```json
 
                 {
@@ -152,7 +153,7 @@ symbol| 	string	| Currency
 symbolId	| string	| Symbol
 txFee| 	string	| Fee
 withDraw	| string	| Whether it can be withdrawn, 0 cannot 1 can
-Response:
+
 
 ```json
             {
@@ -226,7 +227,7 @@ Field|Data Type|Description
 -------------- | -------------- | --------------
 asks	|string|	Buyer'sdepth
 bids	|string|	Seller's depth
-Response:
+
 ```json
                   {
                       "code":"200",
@@ -278,7 +279,7 @@ price  |	string  |	Unit
 amount|	string  | Total quantity
 total	|string  |	Total amount
 time	|string  |	Trading time
-Response:
+
 ```json
 
                   {
@@ -337,7 +338,7 @@ low	|string  |	Low
 open	|  string 	|  Open
 close	|  string    | 	Close
 volume	|string	| Volume
-Response:
+
 ```json
         {
           "code":"200",
@@ -390,7 +391,7 @@ No parameter is needed for this endpoint.
 
 Response Content
 
-Response:
+
 ```json
         {
           "code":"200",
@@ -459,7 +460,7 @@ prize	 |string	 |Order price
 success_count	 |string	 |Total traded quantity
 success_amount |	string	 |Total traded amount
 status |	string |	Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
-Response:
+
 ```json
                 {
                     "code":"200",
@@ -510,7 +511,7 @@ success_total	 |string |	Traded quantity
 fee	 |string |	Unit
 date	 |string	 |Trading time
 status |	string	 |Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
-Response:
+
 ```json
                   {
                       "code":"200",
@@ -556,7 +557,7 @@ type|	string|	Order type
 total|	string|	Total order
 startingAmount	|string|	Order amount
 status|	string	|Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
-Response:
+
 ```json
                 {
                     "code":"200",
@@ -602,7 +603,7 @@ fee|	string	|Fee
 prize	|string	|Order price
 date|	string	|Trading time
 status	|string	|Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
-Response:
+
 ```json
                 {
                     "code":"200",
@@ -670,7 +671,7 @@ Response Content
 Field	|Data Type|	Description
 -------------- | -------------- | -------------- 
 orderNumber	|string	|Order no.
-Response:
+
 ```json
                   {
                       "code":"200",
@@ -702,7 +703,7 @@ Response Content
 Field	 | Data Type	 | Description
 -------------- | -------------- | --------------  
 clientOrderId	 | string	 | Order no.
-Response:
+
 ```json
                 {
                     "code":"200",
@@ -735,7 +736,7 @@ Response Content
 Field	| Data Type	| Description
 -------------- | -------------- | --------------   
 orderNumbers| 	Array	| Order no. list
-Response:
+
 ```json
                 {
                     "code":"200",
@@ -767,7 +768,7 @@ No parameter is needed for this endpoint.
 
 Response Content
 
-Response:
+
 ```json
             {
                 "code":"200",
@@ -815,7 +816,7 @@ Field	| Data Type	| Description
 available| 	string	| Available balance
 onOrders| 	string	| Lock balance
 
-Response:
+
 ```json
                 {
                     "code":"200",
@@ -874,7 +875,7 @@ txid	 |string |	Trading hash
 currency |	string	 |Currency name
 confirmations	 |string	 |Confirmations
 status	 |string |	Status 1: withdrawing 3: withdrawn 4: user cancel
-Response:
+
 ```json
               {
                 "code":"200",
@@ -922,7 +923,7 @@ currency|	string|	true	|	Currency
 address|	string	|true	|	Withdrawal address
 Response Content
 
-Response:
+
 ```json
                 {
                     "code": "200",
@@ -950,7 +951,7 @@ Field|	Data Type|	must	|Description
 id	|string	|true	|	Withdrawal application id
 Response Content
 
-Response:
+
 ```json
               {
                     "code": "200",
@@ -990,7 +991,7 @@ high |	Double	 |High 24H
 low |	Double	 |Low price
 vol |	Double	 |Hot currency volume
 last |	Double	 |Latest price
-Response:
+
 ```json
           {
               "channel":"/market",
