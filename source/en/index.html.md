@@ -71,7 +71,6 @@ If you have any other questions on API, you can contact us by below ways:
 
 # Basic API
 
-
 ## <span>Get trading pair summary information</span>
 
 
@@ -127,7 +126,8 @@ Response:
     
 ```       
 
-Currency information
+## <span>Currency information</span>
+
 
 Back to currency related info
 
@@ -197,32 +197,33 @@ Response:
                 }
         
 ```
-Market API
+
+# Market API
 
 Get current market data
+
+## <span>Get depth</span>
 
 Get depth
 
 Back to the trading pair depth info
 
 **HTTP Request**
->
-GET
-/api/v1/public?command=returnOrderBook
+> GET /api/v1/public?command=returnOrderBook
 
 `curl
 "https://api.coinw.fm/api/v1/public?command=returnOrderBook&symbol=BTC_CNYT&size=20"`
 
 Request Parameters
 
-Field | Data|Type |must |Defaults | Description
+Field | DataType |must |Defaults | Description
 -------------- | -------------- | --------------| --------------| --------------
-size	Int	|  fals | 5	Depth | value |（5，20）
-symbol	|  string  | 	true	 | Trading pair like: BTC-CNYT
+size|	Int	|  false | 5|	Depth | value |（5，20）
+symbol	|  string  | true	|	 | Trading pair like: BTC-CNYT
 Response Content
 
 Field|Data Type|Description
--------------- | -------------- | --------------| --------------| --------------
+-------------- | -------------- | --------------
 asks	|string|	Buyer'sdepth
 bids	|string|	Seller's depth
 Response:
@@ -250,7 +251,7 @@ Response:
       
 ```
         
-Latest trading pair
+## <span>Latest trading pair</span>
 
 Back to the trading pair's last 200 trades
 
@@ -262,8 +263,8 @@ Back to the trading pair's last 200 trades
 
 Request Parameters
 
-Field |	Data Type |	must  | Defaults|	Description
--------------- | -------------- | --------------| --------------| --------------
+Field |	Data Type |	must  |	Description
+-------------- | -------------- | --------------| --------------
 symbol	| string |  true	  | Trading pair like: BTC_CNYT
 start  |	string  |	false	|	Start time：UNIX timestamp
 end	|string  |	false	|	End time：UNIX timestamp
@@ -305,8 +306,10 @@ Response:
                       "msg":"SUCCESS"
                   }
 ```
+      
+  
+## <span>K-line data</span>
               
-K-line data
 
 Back to K-line data
 
@@ -318,19 +321,19 @@ Back to K-line data
 
 Request Parameters
 
-Field  |  Data Type	|  must	|  Defaults	|  Description
--------------- | -------------- | --------------| --------------| --------------
-period	| Int	True	  |  Cycle: Sec. such as: 60, 180, 300, 900, 1800, 7200, 14400
-currencyPair 	| String	True		| Trading pair like: BTC_CNYT
-start	String	|  False	|	Start | time:UNIX timestamp
-end	String	|  False	|	End | time:UNIX timestamp
+Field  |  Data Type	|  must		|  Description
+-------------- | -------------- | --------------| --------------
+period	| Int	|True	  |  Cycle: Sec. such as: 60, 180, 300, 900, 1800, 7200, 14400
+currencyPair 	| String	| True	|	| Trading pair like: BTC_CNYT
+start	|String	|  False	|	Start | time:UNIX timestamp
+end	|String	|  False	|	End | time:UNIX timestamp
 Response Content
 
 Field	| Data Type	| Description
--------------- | -------------- | --------------| --------------| --------------
-date	string	| Time
-high	string	| High
-low	string  |	Low
+-------------- | -------------- | --------------
+date|	string	| Time
+high|	string	| High
+low	|string  |	Low
 open	|  string 	|  Open
 close	|  string    | 	Close
 volume	|string	| Volume
@@ -371,7 +374,7 @@ Response:
           "msg":"SUCCESS"
         }
 ```      
-Hot currency volume
+## <span>Hot currency volume</span>
 
 Get trading pair 24H volume
 
@@ -423,11 +426,11 @@ Response:
           "msg":"SUCCESS"
         }
 ```      
-Trade API
+# Trade API
 
 For fast trading
 
-Pending order list
+## <span>Pending order list</span>
 
 Back to the trading pair's pending order list
 
@@ -439,20 +442,23 @@ Back to the trading pair's pending order list
 
 Request Parameters
 
-Field	Data Type	must	Defaults	Description
-currencyPair	string	true		Trading pair
+Field	 |Data Type |	must	 |	Description
+-------------- | -------------- | --------------| --------------
+currencyPair	 |string	 |true	 |	Trading pair
+
 Response Content
 
-Field	Data Type	Description
-orderNumber	string	Order no.
-date	string	Trading time
-startingAmount	string	Order total amount
-total	string	Total order
-type	string	Order type
-prize	string	Order price
-success_count	string	Total traded quantity
-success_amount	string	Total traded amount
-status	string	Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
+Field |	Data Type	 |Description
+-------------- | -------------- | --------------
+orderNumber |	string |	Order no.
+date	 |string |	Trading time
+startingAmount |	string |	Order total amount
+total	 |string |	Total order
+type	 |string	 |Order type
+prize	 |string	 |Order price
+success_count	 |string	 |Total traded quantity
+success_amount |	string	 |Total traded amount
+status |	string |	Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
 Response:
 ```json
                 {
@@ -472,9 +478,10 @@ Response:
                     ],
                     "msg":"SUCCESS"
                 }
-```            
-Order details
+```      
 
+## <span>Order details</span>
+      
 Back to the order detail information
 
 **HTTP Request**
@@ -485,23 +492,24 @@ Back to the order detail information
 
 Request Parameters
 
-Field	| Data Type  |	must | Defaults  |	Description
--------------- | -------------- | --------------| --------------| --------------
-orderNumber	| string	|  true	|	Order |no.
+Field	| Data Type  |	must   |	Description
+-------------- | -------------- | --------------| --------------
+orderNumber	| string	|  true	|	Order
+
 Response Content
 
 Field	| Data Type	|  Description
--------------- | -------------- | --------------| --------------| --------------
+-------------- | -------------- | --------------
 tradeID	| string	|  Trading ID |
 currencyPair	| string	|  Trading pair |
-type	string	|  Order type
-amount	string	Total trading amount
-success_amount	string	Traded amount
-total	string	Total order
-success_total	string	Traded quantity
-fee	string	Unit
-date	string	Trading time
-status	string	Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
+type	 |string	|  Order type
+amount |	string |	Total trading amount
+success_amount |	string |	Traded amount
+total	 |string	 |Total order
+success_total	 |string |	Traded quantity
+fee	 |string |	Unit
+date	 |string	 |Trading time
+status |	string	 |Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
 Response:
 ```json
                   {
@@ -520,8 +528,11 @@ Response:
                       },
                       "msg":"SUCCESS"
                   }
-```              
-Order status
+```  
+
+
+## <span>Order status</span>            
+
 
 Back to the order satus information
 
@@ -533,16 +544,18 @@ Back to the order satus information
 
 Request Parameters
 
-Field	Data Type	must	Defaults	Description
-orderNumber	string	true		Order no.
+Field |	Data Type |	must	 |	Description
+-------------- | -------------- | --------------| --------------
+orderNumber	 |string |	true	 |	Order no.
 Response Content
 
-Field	Data Type	Description
-currencyPair	string	Trading pair
-type	string	Order type
-total	string	Total order
-startingAmount	string	Order amount
-status	string	Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
+Field	|Data Type|	Description
+-------------- | -------------- | --------------
+currencyPair|	string|	Trading pair
+type|	string|	Order type
+total|	string|	Total order
+startingAmount	|string|	Order amount
+status|	string	|Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
 Response:
 ```json
                 {
@@ -557,8 +570,9 @@ Response:
                     },
                     "msg":"SUCCESS"
                 }
-```            
-History order
+```       
+## <span> History order </span>      
+
 
 Back to the trading pair's traded records, 1000 at most
 
@@ -570,21 +584,24 @@ Back to the trading pair's traded records, 1000 at most
 
 Request Parameters
 
-Field	Data Type	must	Defaults	Description
-currencyPair	string	true		Trading pair
+Field	|Data Type	|must	|	Description
+-------------- | -------------- | --------------| --------------
+currencyPair|	string	|true	|	Trading pair
+
 Response Content
 
-Field	Data Type	Description
-tradeID	string	Trading ID
-type	string	Order type
-amount	string	Total trading amount
-success_amount	string	Traded amount
-total	string	Total order
-success_count	string	Traded quantity
-fee	string	Fee
-prize	string	Order price
-date	string	Trading time
-status	string	Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
+Field	|Data Type|	Description
+-------------- | -------------- | --------------
+tradeID	|string|	Trading ID
+type|	string	|Order type
+amount	|string|	Total trading amount
+success_amount|	string|	Traded amount
+total	|string	|Total order
+success_count	|string	|Traded quantity
+fee|	string	|Fee
+prize	|string	|Order price
+date|	string	|Trading time
+status	|string	|Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel
 Response:
 ```json
                 {
@@ -627,8 +644,10 @@ Response:
                     ],
                     "msg":"SUCCESS"
                 }
-```            
-Order
+```      
+
+## <span> Order </span> 
+      
 
 Order
 
@@ -640,15 +659,17 @@ Order
 
 Request Parameters
 
-Field	Data Type	must	Defaults	Description
-symbol	string	true		Trading pair like: BTC_CNYT
-type	string	true		Order type: 0-buy, 1-sell
-amount	double	true		Order quantity
-rate	double	true		Order price
+Field|	Data Type|	must|	Description
+-------------- | -------------- | -------------- | --------------
+symbol|	string|	true	|	Trading pair like: BTC_CNYT
+type|	string	|true	|	Order type: 0-buy, 1-sell
+amount	|double	|true	|	Order quantity
+rate|	double|	true	|	Order price
 Response Content
 
-Field	Data Type	Description
-orderNumber	string	Order no.
+Field	|Data Type|	Description
+-------------- | -------------- | -------------- 
+orderNumber	|string	|Order no.
 Response:
 ```json
                   {
@@ -658,8 +679,10 @@ Response:
                       },
                       "msg":"SUCCESS"
                   }
-```              
-Cancel order
+```        
+
+## <span> Cancel order </span> 
+     
 
 Cancel the order
 
@@ -671,12 +694,14 @@ Cancel the order
 
 Request Parameters
 
-Field	Data Type	must	Defaults	Description
-orderNumber	string	true		Order no.
+Field	|Data Type	|must|	Description
+-------------- | -------------- | -------------- | -------------- 
+orderNumber	|string	|true	|	Order no.
 Response Content
 
-Field	Data Type	Description
-clientOrderId	string	Order no.
+Field	 | Data Type	 | Description
+-------------- | -------------- | --------------  
+clientOrderId	 | string	 | Order no.
 Response:
 ```json
                 {
@@ -686,8 +711,10 @@ Response:
                     },
                     "msg":"SUCCESS"
                 }
-```       
-Cancel all order
+```    
+
+## <span>Cancel all order </span>
+   
 
 Cancel all order
 
@@ -699,12 +726,15 @@ Cancel all order
 
 Request Parameters
 
-Field	Data Type	must	Defaults	Description
-currencyPair	string	False		Trading pair
+Field	 |Data Type |	must |		Description
+-------------- | -------------- | --------------  | -------------- 
+currencyPair |	string	 |False	 |	Trading pair
+
 Response Content
 
-Field	Data Type	Description
-orderNumbers	Array	Order no. list
+Field	| Data Type	| Description
+-------------- | -------------- | --------------   
+orderNumbers| 	Array	| Order no. list
 Response:
 ```json
                 {
@@ -716,11 +746,12 @@ Response:
                 }
 ```
             
-Withdraw API
+# Withdraw API
 
 For fast crypto withdrawal
 
-Available balance
+## <span>Available balance </span>
+
 
 Return the available balance of the asset account
 
@@ -761,7 +792,9 @@ Response:
                 "msg":"SUCCESS"
             }
 ```            
-All balance
+
+## <span>All balance </span>
+
 
 Return all balances of the asset account
 
@@ -777,9 +810,11 @@ No parameter is needed for this endpoint.
 
 Response Content
 
-Field	Data Type	Description
-available	string	Available balance
-onOrders	string	Lock balance
+Field	| Data Type	| Description
+-------------- | -------------- | --------------   
+available| 	string	| Available balance
+onOrders| 	string	| Lock balance
+
 Response:
 ```json
                 {
@@ -809,9 +844,11 @@ Response:
                     },
                     "msg":"SUCCESS"
                 }
-```            
-D&w history
+```      
 
+
+## <span> D&w history </span>
+      
 Get d&w history
 
 **HTTP Request**
@@ -822,18 +859,21 @@ Get d&w history
 
 Request Parameters
 
-Field	Data Type	must	Defaults	Description
-symbol	string	true		Currency name
+Field	 | Data Type | 	must	 | Description
+-------------- | -------------- | --------------    | -------------- 
+symbol | 	string | 	true	 | 	Currency name
+
 Response Content
 
-Field	Data Type	Description
-amount	string	Quantity
-depositNumber	string	The only number(ID)
-address	string	D&w addresses
-txid	string	Trading hash
-currency	string	Currency name
-confirmations	string	Confirmations
-status	string	Status 1: withdrawing 3: withdrawn 4: user cancel
+Field |	Data Type |	Description
+-------------- | -------------- | --------------    
+amount	 |string |	Quantity
+depositNumber |	string	 |The only number(ID)
+address	 |string |	D&w addresses
+txid	 |string |	Trading hash
+currency |	string	 |Currency name
+confirmations	 |string	 |Confirmations
+status	 |string |	Status 1: withdrawing 3: withdrawn 4: user cancel
 Response:
 ```json
               {
@@ -859,9 +899,11 @@ Response:
                 ],
                 "msg":"SUCCESS"
               }
-```            
-Withdraw
+``` 
 
+## <span> Withdraw </span>
+
+         
 Withdraw
 
 **HTTP Request**
@@ -872,11 +914,12 @@ Withdraw
 
 Request Parameters
 
-Field	Data Type	must	Defaults	Description
-memo	string	False		Memo
-amount	string	true		Withdraw quantity
-currency	string	true		Currency
-address	string	true		Withdrawal address
+Field|	Data Type	|must|	Description
+-------------- | -------------- | --------------  | --------------     
+memo|	string|	False	|	Memo
+amount	|string	|true	|	Withdraw quantity
+currency|	string|	true	|	Currency
+address|	string	|true	|	Withdrawal address
 Response Content
 
 Response:
@@ -886,9 +929,12 @@ Response:
                     "data": null,
                     "msg": "SUCCESS"
                 }
-```              
-Cancel withdrawal
+```     
 
+
+
+## <span> Cancel withdrawal </span>
+         
 Cancel withdrawal
 
 **HTTP Request**
@@ -899,8 +945,9 @@ Cancel withdrawal
 
 Request Parameters
 
-Field	Data Type	must	Defaults	Description
-id	string	true		Withdrawal application id
+Field|	Data Type|	must	|Description
+-------------- | -------------- | --------------  | --------------     
+id	|string	|true	|	Withdrawal application id
 Response Content
 
 Response:
@@ -911,11 +958,12 @@ Response:
                     "msg": "SUCCESS"
                 }
 ```            
-Real-time quotes
+
+# Real-time quotes
 
 Get current market data
 
-Websocket market data
+## <span> Websocket market data </span>
 
 Websocket market data
 
@@ -927,19 +975,21 @@ websocket "wss://api.coinw.fm//websocket"
 
 Request Parameters
 
-Field	Data Type	must	Defaults	Description
-event	string	True		Fill inaddChannel
-channel	string	True		Fill in/market
-symbol	string	int		CurrencyID
+Field| 	Data Type	| must	| 	Description
+-------------- | -------------- | --------------  | --------------     
+event| 	string	| True	| 	Fill inaddChannel
+channel	| string	| True	| 	Fill in/market
+symbol| 	string	| int	| 	CurrencyID
 Response Content
 
-Field	Data Type	Description
-buy	Double	Buy price
-sell	Double	Sell price
-high	Double	High 24H
-low	Double	Low price
-vol	Double	Hot currency volume
-last	Double	Latest price
+Field |	Data Type |	Description
+-------------- | -------------- | --------------       
+buy |	Double	 |Buy price
+sell |	Double	 |Sell price
+high |	Double	 |High 24H
+low |	Double	 |Low price
+vol |	Double	 |Hot currency volume
+last |	Double	 |Latest price
 Response:
 ```json
           {
@@ -960,20 +1010,21 @@ Response:
               }
           }
 ```      
-Error code
+# Error code
 
 API interface call error code description
 
-Error code	Detail description
-200	Operation success
-500	Operation failure
-10001	Internet error
-10002	API not exist
-10003	Parameter error
-10004	No trading permission
-10005	No withdrawal permission
-10006	api_key error
-10007	Signature error
-json
+Error code| 	Detail description
+-------------- | --------------        
+200	| Operation success
+500| 	Operation failure
+10001	| Internet error
+10002	| API not exist
+10003	| Parameter error
+10004	| No trading permission
+10005| 	No withdrawal permission
+10006| 	api_key error
+10007	| Signature error
+
 
 
